@@ -87,3 +87,15 @@ This Serverless application creates a IAM policy as below.
 ## License
 
 MIT License (MIT)
+
+
+## Steps to implement - 
+- Download the repo and create an s3 bucket.
+- Zip lambda_function.py and upload to s3 bucket.
+- In template.yml file - Update the s3 bucket name and lambda_function.zip name as key.
+- Run below command to create CF stack.
+
+aws --region us-east-1 cloudformation create-stack --stack-name dns-update-lambda-stack --template-body file://template.yml --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM
+
+- Tag your instance with Route53FQDN - FQDN.
+- That's it. ENjoy!
